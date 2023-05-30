@@ -1,0 +1,23 @@
+.reservation-card {
+  background-color: white;
+  border: teal solid 7px;
+  border-radius: 5%;
+  color: teal;
+  padding: 5px;
+  width: 220px;
+  height: 200px;
+  margin: 5px;
+}
+
+.reservation-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.reservation-card button {
+  background-color: teal;
+  border: teal solid 1px;
+  width: 80%;
+  color: white;
+}
