@@ -34,15 +34,11 @@ const App = () => {
   };
 
   const handleDelete = (id) => {
-    const updatedReservations = reservations.filter(
-      (res) => res.id !== Number(id)
-    );
-
     fetch(`http://localhost:3001/api/v1/reservations/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
-      .then((data) => setReservations(updatedReservations));
+      .then((data) => setReservations(data));
   };
 
   const resos =
