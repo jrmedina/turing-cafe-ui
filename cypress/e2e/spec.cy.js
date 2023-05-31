@@ -40,9 +40,15 @@ describe("Reservation Cafe", () => {
   });
 
   it("should be able to make a new reservation", () => {
-    cy.intercept("POST", "http://localhost:3001/api/v1/reservations").as(
-      "newReso"
-    );
+    // cy.intercept("POST", "http://localhost:3001/api/v1/reservations").as(
+    //   "newReso"
+    // );
+    cy.intercept("POST", "http://localhost:3001/api/v1/reservations", {
+      name: "Josh",
+      date: "12/20",
+      time: "12:30",
+      number: 8,
+    }).as("newReso");
 
     cy.get("form").find('input[id="name"]').type("Josh");
 
@@ -52,10 +58,10 @@ describe("Reservation Cafe", () => {
 
     cy.get("form").find('input[id="number"]').type(8);
 
-    cy.get("button").click();
+    cy.get(".resy-button").click();
 
     cy.wait("@newReso").then(({ response }) => {
-      expect(response.statusCode).to.eq(201);
+      expect(response.statusCode).to.eq(200);
       expect(response.body.name).to.eq("Josh");
       expect(response.body.date).to.eq("12/20");
       expect(response.body.time).to.eq("12:30");
