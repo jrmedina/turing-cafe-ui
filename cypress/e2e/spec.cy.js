@@ -40,9 +40,7 @@ describe("Reservation Cafe", () => {
   });
 
   it("should be able to make a new reservation", () => {
-    // cy.intercept("POST", "http://localhost:3001/api/v1/reservations").as(
-    //   "newReso"
-    // );
+    
     cy.intercept("POST", "http://localhost:3001/api/v1/reservations", {
       name: "Josh",
       date: "12/20",
